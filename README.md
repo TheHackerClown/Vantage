@@ -24,11 +24,11 @@
 ---
 
 📁 Folder Structure
-
+```
 /Vantage
 ├── VantageFrontend/   # Next.js client app (UI, pages, auth)
 └── VantageBackend/    # Django app (API, logic, models)
-
+```
 
 ---
 
