@@ -1,6 +1,6 @@
 # Vantage – Payroll SaaS for Indian Businesses 🇮🇳
 
-**Vantage** is a full-stack SaaS application tailored for Indian businesses that are liable under the ESI (Employees' State Insurance) and EPF (Employees' Provident Fund) Acts. It automates payroll processing, ensures statutory compliance, and simplifies employee management and reporting.
+**Vantage** is a full-stack SaaS application tailored for Indian businesses that are liable under the ESI (Employees' State Insurance) and EPF (Employees' Provident Fund) Acts. It automates payroll processing, ensures mandatory compliance, and simplifies employee management and reporting.
 
 ---
 
