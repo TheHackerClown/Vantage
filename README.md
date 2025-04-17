@@ -48,9 +48,7 @@
 
 ## 📌 Project Status
 
-✅ Core payroll & compliance logic  
-✅ Employee management  
-🔧 Currently adding more reporting tools & filing automation
+🔧 Currently adding functional components to frontend
 
 ---
 
