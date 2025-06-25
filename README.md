@@ -66,6 +66,6 @@ python main.py
 
 ## 🙋‍♂️ Author
 
-Dhruv Pratap Singh
+Dhruv Pratap Singh,
 github.com/TheHackerClown
 ---
