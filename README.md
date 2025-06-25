@@ -18,11 +18,11 @@
 
 ## 🛠️ Technologies Used
 
-- Python 3.x  
-- Tkinter (GUI)
-- SQLite3 (Database)
-- ReportLab / FPDF (PDF Generation)
-- `openpyxl` or `pandas` (XLS Generation)
+- `Python 3.13.3` 
+- `Tkinter` (GUI)
+- `SQLite3` (Database)
+- `FPDF` (PDF Generation)
+- `xlsxwriter` (XLS Generation)
 
 ---
 
