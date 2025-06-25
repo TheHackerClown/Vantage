@@ -61,3 +61,11 @@ pip install -r requirements.txt
 ```
 python main.py
 ```
+
+---
+
+## 🙋‍♂️ Author
+
+Dhruv Pratap Singh
+github.com/TheHackerClown
+---
