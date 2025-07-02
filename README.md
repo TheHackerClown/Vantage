@@ -64,6 +64,55 @@ python main.py
 
 ---
 
+## 📦 Build
+
+1. **Clone the repository:**
+
+```
+git clone https://github.com/TheHackerClown/Vantage.git
+cd Vantage
+```
+
+2. **Install Requirements:**
+
+```
+pip install -r requirements.txt
+
+#For Windows
+Install Microsoft Visual Studio Build Tools
+
+#For Linux
+apt/dnf/etc install build-essential
+
+#For Arch
+pacman -S base-devel
+
+#For Mac
+xcode-select --install
+```
+
+
+
+3. **Run Nuitka with given arguements:**
+
+```
+nuitka --standalone --enable-plugin=tk-inter --lto=yes --follow-imports --show-progress --remove-output --enable-plugin=pylint-warnings main.py
+```
+
+4. **Use Executables Generated in main.dist/ folder**
+
+```
+main.dist/
+├── main.exe       (if compiled for Windows)
+├── Python DLLs
+├── Dependencies
+├── main.bin       (If compiled for Linux)
+├── main           (If compiled for Macos)
+```
+
+
+---
+
 ## 🙋‍♂️ Author
 
 Dhruv Pratap Singh,

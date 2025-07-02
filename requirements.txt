@@ -2,12 +2,12 @@ altgraph==0.17.4
 defusedxml==0.7.1
 fonttools==4.58.4
 fpdf2==2.8.3
+Nuitka==2.7.11
+numpy==2.3.1
+ordered-set==4.1.0
 packaging==25.0
 peewee==3.18.1
-pillow==11.2.1
-pyinstaller==6.14.1
-pyinstaller-hooks-contrib==2025.5
 setuptools==80.9.0
-sv_ttk==2.6.1
 tk==0.1.0
 xlsxwriter==3.2.5
+zstandard==0.23.0

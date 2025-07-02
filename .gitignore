@@ -1,1 +1,8 @@
 venv
+main.dist
+main.build
+__pycache__
+*.pyc
+*.db
+*.sqlite3
+*.log
