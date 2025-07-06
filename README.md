@@ -28,10 +28,8 @@
 
 ## 🚫 License & Usage
 
-Vantage is **free for personal, non-commercial use only**.  
-Distribution, redistribution, or commercial usage of this software is **strictly prohibited**.
-
-> See the [LICENSE](./LICENSE) file for full terms.
+Vantage-Payroll is licensed under the GNU AGPL v3.0 with additional terms restricting commercial redistribution.  
+Please see the [LICENSE](./LICENSE) file for full terms.
 
 ---
 
