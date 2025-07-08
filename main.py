@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 
-from tkinter import ttk, Tk,PhotoImage,Menu
+from tkinter import ttk, Tk, PhotoImage, Menu
 from pathlib import Path
 from tkinter.messagebox import showwarning as warn, showinfo as info
-
 
 ESI_EMPLOYEE_RATE = 0.75
 EPF_EMPLOYEE_RATE = 12.0
@@ -11,50 +10,47 @@ ESI_EMPLOYER_RATE = 3.25
 EPF_EMPLOYER_RATE = 13.0
 
 
-
 class Vantage(Tk):
-    #Initialization
+
+    # Initialization
     def __init__(self, *args, **kwargs):
-        Tk.__init__(self, *args,**kwargs)
+        Tk.__init__(self, *args, **kwargs)
         self.file_dir = Path(__file__).resolve().parent
 
-
-        #Title
+        # Title
         self.companytitle = "G. P. Singh And Associates"
         self.month = "January, 2024"
         self.refreshTitle()
 
-
-        #Logo
+        # Logo
         self.logo_png = PhotoImage((self.file_dir / "assets/Vantage.png").as_posix())
-        self.iconphoto(True,self.logo_png)
-        
-        #Taskbar Logo (Windows Specific)
+        self.iconphoto(True, self.logo_png)
+
+        # Taskbar Logo (Windows Specific)
         try:
             self.logo_ico = PhotoImage((self.file_dir / "assets/Vantage.ico").as_posix())
             self.iconbitmap(self.logo_ico)
-        except Exception as e:
+        except Exception:
             pass
 
         w, h = self.winfo_screenwidth(), self.winfo_screenheight()
         self.geometry("%dx%d+0+0" % (w, h))
 
-        #Theme
+        # Theme
         self.tk.call('source', self.file_dir / 'assets/theme/forest-light.tcl')
         ttk.Style().theme_use('forest-light')
-        self.protocol("WM_DELETE_WINDOW",lambda:warn("Close Button Clicked","Use Exit Button to safely close this Software."))
-        self.resizable(False,False)
+        self.protocol("WM_DELETE_WINDOW", lambda: warn("Close Button Clicked", "Use Exit Button to safely close this Software."))
+        self.resizable(False, False)
 
-        #Initialize the top menu bar and draw the main window content
+        # Initialize the top menu bar and draw the main window content
         self.topMenuBar()
         self.drawWindow()
 
-
-    #Initialization of the top menu bar
     def topMenuBar(self):
+        # Initialization of the top menu bar
         self.menubar = Menu(self)
 
-        #--------------------------------------------------------
+        # --------------------------------------------------------
 
         selectionMenu = Menu(self.menubar, tearoff=0)
 
@@ -66,28 +62,28 @@ class Vantage(Tk):
 
         self.menubar.add_cascade(label="Selection", menu=selectionMenu)
 
-        #--------------------------------------------------------
+        # --------------------------------------------------------
 
         masterMenu = Menu(self.menubar, tearoff=0)
 
-        masterMenu.add_command(label="Employee",command=self.quit)
-        masterMenu.add_command(label="Designation",command=self.quit)
-        masterMenu.add_command(label="Department",command=self.quit)
-        masterMenu.add_command(label="Branch",command=self.quit)
-        masterMenu.add_command(label="Payment",command=self.quit)
-        masterMenu.add_command(label="State",command=self.quit)
-        masterMenu.add_command(label="Employee (Browse)",command=self.quit)
-        masterMenu.add_command(label="Emolument Update",command=self.quit)
-        masterMenu.add_command(label="Deduction Update",command=self.quit)
-        masterMenu.add_command(label="Family Details (Employee)",command=self.quit)
-        masterMenu.add_command(label="Workmen Number",command=self.quit)
+        masterMenu.add_command(label="Employee", command=self.quit)
+        masterMenu.add_command(label="Designation", command=self.quit)
+        masterMenu.add_command(label="Department", command=self.quit)
+        masterMenu.add_command(label="Branch", command=self.quit)
+        masterMenu.add_command(label="Payment", command=self.quit)
+        masterMenu.add_command(label="State", command=self.quit)
+        masterMenu.add_command(label="Employee (Browse)", command=self.quit)
+        masterMenu.add_command(label="Emolument Update", command=self.quit)
+        masterMenu.add_command(label="Deduction Update", command=self.quit)
+        masterMenu.add_command(label="Family Details (Employee)", command=self.quit)
+        masterMenu.add_command(label="Workmen Number", command=self.quit)
 
         self.menubar.add_cascade(label="Master", menu=masterMenu)
 
-        #--------------------------------------------------------
+        # --------------------------------------------------------
 
         datamaintainMenu = Menu(self.menubar, tearoff=0)
-        
+
         attendanceMenu = Menu(datamaintainMenu, tearoff=0)
         datamaintainMenu.add_cascade(label="Attendance", menu=attendanceMenu)
 
@@ -97,9 +93,9 @@ class Vantage(Tk):
         loanAdvanceMenu = Menu(datamaintainMenu, tearoff=0)
         datamaintainMenu.add_cascade(label="Loan/Advances", menu=loanAdvanceMenu)
 
-        datamaintainMenu.add_command(label="Rewards",command=self.quit)
-        datamaintainMenu.add_command(label="Increments",command=self.quit)
-        datamaintainMenu.add_command(label="Training",command=self.quit)
+        datamaintainMenu.add_command(label="Rewards", command=self.quit)
+        datamaintainMenu.add_command(label="Increments", command=self.quit)
+        datamaintainMenu.add_command(label="Training", command=self.quit)
 
         pfesiwagesMenu = Menu(datamaintainMenu, tearoff=0)
         datamaintainMenu.add_cascade(label="PF/ESI Wages (Direct Feeding)", menu=pfesiwagesMenu)
@@ -113,7 +109,7 @@ class Vantage(Tk):
         bonusmaintainMenu = Menu(datamaintainMenu, tearoff=0)
         datamaintainMenu.add_cascade(label="Bonus", menu=bonusmaintainMenu)
 
-        datamaintainMenu.add_command(label="List Of Holiday",command=self.quit)
+        datamaintainMenu.add_command(label="List Of Holiday", command=self.quit)
 
         musterRollMenu = Menu(datamaintainMenu, tearoff=0)
         datamaintainMenu.add_cascade(label="Muster Roll", menu=musterRollMenu)
@@ -124,7 +120,7 @@ class Vantage(Tk):
         annualPFReturnMenu = Menu(datamaintainMenu, tearoff=0)
         datamaintainMenu.add_cascade(label="Annual P.F. Return", menu=annualPFReturnMenu)
 
-        datamaintainMenu.add_command(label="ID Card",command=self.quit)
+        datamaintainMenu.add_command(label="ID Card", command=self.quit)
 
         netpayMenu = Menu(datamaintainMenu, tearoff=0)
         datamaintainMenu.add_cascade(label="Net Pay", menu=netpayMenu)
@@ -133,8 +129,8 @@ class Vantage(Tk):
         datamaintainMenu.add_cascade(label="Attendance Adjust", menu=attendanceAdjustMenu)
 
         self.menubar.add_cascade(label="Data Maintenance", menu=datamaintainMenu)
-        
-        #--------------------------------------------------------
+
+        # --------------------------------------------------------
 
         reportsMenu = Menu(self.menubar, tearoff=0)
 
@@ -178,60 +174,60 @@ class Vantage(Tk):
         reportsMenu.add_cascade(label="Gratuity", menu=gratuityMenu)
         reportsMenu.add_cascade(label="Statistical", menu=statisticalMenu)
         reportsMenu.add_cascade(label="Misc. Customer", menu=miscCustomerMenu)
-        
-        #--------------------------------------------------------
+
+        # --------------------------------------------------------
 
         updationMenu = Menu(self.menubar, tearoff=0)
-        updationMenu.add_command(label="Month Change",command=self.quit)
-        updationMenu.add_command(label="Insertion Working Day",command=self.quit)
-        updationMenu.add_command(label="Calculation - Salary",command=self.quit)
-        updationMenu.add_command(label="Data updation",command=self.quit)
-        updationMenu.add_command(label="Data Transfer (Attendance Machine)",command=self.quit)
-        updationMenu.add_command(label="Previous Salary Add in Current File",command=self.quit)
-        updationMenu.add_command(label="New Employee Add in Current File",command=self.quit)
-        updationMenu.add_command(label="Bonus Calculation",command=self.quit)
-        updationMenu.add_command(label="Factory Act Calculation",command=self.quit)
-        updationMenu.add_command(label="Master List Add in Current File",command=self.quit)
-        updationMenu.add_command(label="Transfer Data to Excel",command=self.quit)
-        updationMenu.add_command(label="Calculation Overtime",command=self.quit)
-        self.menubar.add_cascade(label="Updation", menu=updationMenu)
+        updationMenu.add_command(label="Month Change", command=self.quit)
+        updationMenu.add_command(label="Insertion Working Day", command=self.quit)
+        updationMenu.add_command(label="Calculation - Salary", command=self.quit)
+        updationMenu.add_command(label="Data updation", command=self.quit)
+        updationMenu.add_command(label="Data Transfer (Attendance Machine)", command=self.quit)
+        updationMenu.add_command(label="Previous Salary Add in Current File", command=self.quit)
+        updationMenu.add_command(label="New Employee Add in Current File", command=self.quit)
+        updationMenu.add_command(label="Bonus Calculation", command=self.quit)
+        updationMenu.add_command(label="Factory Act Calculation", command=self.quit)
+        updationMenu.add_command(label="Master List Add in Current File", command=self.quit)
+        updationMenu.add_command(label="Transfer Data to Excel", command=self.quit)
+        updationMenu.add_command(label="Calculation Overtime", command=self.quit)
+        self.menubar.add_cascade(label="Updation",  menu=updationMenu)
 
-        #--------------------------------------------------------
+        # --------------------------------------------------------
 
         setupMenu = Menu(self.menubar, tearoff=0)
-        
-        setupMenu.add_command(label="Install",command=self.quit)
-        setupMenu.add_command(label="Setup Company",command=self.quit)
-        setupMenu.add_command(label="Setup Allowance",command=self.quit)
-        setupMenu.add_command(label="Setup Deduction",command=self.quit)
-        setupMenu.add_command(label="Setup Income Tax",command=self.quit)
-        setupMenu.add_command(label="Password Change",command=self.quit)
-        setupMenu.add_command(label="Salary File Deletion",command=self.quit)
-        setupMenu.add_command(label="Browse Files",command=self.quit)
-        setupMenu.add_command(label="Command Line",command=self.quit)
-        setupMenu.add_command(label="Recall Master Delete",command=self.quit)
-        setupMenu.add_command(label="Invalid Subscript Reference",command=self.quit)
-        setupMenu.add_command(label="Code Setting",command=self.quit)
-        setupMenu.add_command(label="Previous Month Deletion",command=self.quit)
-        setupMenu.add_command(label="I.Card No. Change",command=self.quit)
-        setupMenu.add_command(label="Update Advance",command=self.quit)
-        setupMenu.add_command(label="Update Increment",command=self.quit)
-        setupMenu.add_command(label="Delete Unrecovered Advance",command=self.quit)
-        setupMenu.add_command(label="Data Transfer (Servagya)",command=self.quit)
-        setupMenu.add_command(label="Updated-Master",command=self.quit)
-        setupMenu.add_command(label="Updated-Months Total",command=self.quit)
+
+        setupMenu.add_command(label="Install", command=self.quit)
+        setupMenu.add_command(label="Setup Company", command=self.quit)
+        setupMenu.add_command(label="Setup Allowance", command=self.quit)
+        setupMenu.add_command(label="Setup Deduction", command=self.quit)
+        setupMenu.add_command(label="Setup Income Tax", command=self.quit)
+        setupMenu.add_command(label="Password Change", command=self.quit)
+        setupMenu.add_command(label="Salary File Deletion", command=self.quit)
+        setupMenu.add_command(label="Browse Files", command=self.quit)
+        setupMenu.add_command(label="Command Line", command=self.quit)
+        setupMenu.add_command(label="Recall Master Delete", command=self.quit)
+        setupMenu.add_command(label="Invalid Subscript Reference", command=self.quit)
+        setupMenu.add_command(label="Code Setting", command=self.quit)
+        setupMenu.add_command(label="Previous Month Deletion", command=self.quit)
+        setupMenu.add_command(label="I.Card No. Change", command=self.quit)
+        setupMenu.add_command(label="Update Advance", command=self.quit)
+        setupMenu.add_command(label="Update Increment", command=self.quit)
+        setupMenu.add_command(label="Delete Unrecovered Advance", command=self.quit)
+        setupMenu.add_command(label="Data Transfer (Servagya)", command=self.quit)
+        setupMenu.add_command(label="Updated-Master", command=self.quit)
+        setupMenu.add_command(label="Updated-Months Total", command=self.quit)
 
         self.menubar.add_cascade(label="Setup", menu=setupMenu)
 
-        #--------------------------------------------------------
+        # --------------------------------------------------------
 
         quitMenu = Menu(self.menubar, tearoff=0)
-        quitMenu.add_command(label="Quit",command=self.quit)#add a warning dialog before quitting
-        quitMenu.add_command(label="About",command=lambda:info("About Vantage","Vantage Payroll is a Software Made Exclusively For\n G. P. Singh And Associates\nVersion 1.0\nDeveloped by TheHackerClown"))
+        quitMenu.add_command(label="Quit", command=self.quit)  # add a warning dialog before quitting
+        quitMenu.add_command(label="About", command=lambda: info("About Vantage", "Vantage Payroll is a Software Made Exclusively For\n G. P. Singh And Associates\nVersion 1.0\nDeveloped by TheHackerClown"))
 
-        self.menubar.add_cascade(label="Quit",menu=quitMenu)
+        self.menubar.add_cascade(label="Quit", menu=quitMenu)
 
-        #--------------------------------------------------------
+        # --------------------------------------------------------
 
         self.config(menu=self.menubar)
 
@@ -256,7 +252,6 @@ class Vantage(Tk):
             if not menu_name:
                 return
             menu_handle.entryconfig(menu_name, state="normal")
-
 
     def refreshTitle(self):
         """Change the title of the main window."""
