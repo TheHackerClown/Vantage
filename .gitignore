@@ -8,3 +8,7 @@ __pycache__
 *.log
 .todo.bak
 ExampleCompanyData
+DBF_Documentation.md
+*.dbf
+node_modules
+.next
