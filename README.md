@@ -46,6 +46,7 @@ This software is provided **"as is"**, without any warranty of any kind. The aut
 ```
 git clone https://github.com/TheHackerClown/Vantage.git
 cd Vantage
+git checkout desktop
 ```
 
 2. **Install Requirements:**
@@ -69,6 +70,7 @@ python main.py
 ```
 git clone https://github.com/TheHackerClown/Vantage.git
 cd Vantage
+git checkout desktop
 ```
 
 2. **Install Requirements:**
