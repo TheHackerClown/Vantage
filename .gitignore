@@ -12,3 +12,6 @@ DBF_Documentation.md
 *.dbf
 node_modules
 .next
+/app/generated/prisma
+.env
+next-env.d.ts
