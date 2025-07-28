@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 
-from tkinter import ttk, Tk, PhotoImage, Menu
+from tkinter import ttk, Tk, PhotoImage, Menu, font
 from pathlib import Path
 from tkinter.messagebox import showwarning as warn, showinfo as info
 
-ESI_EMPLOYEE_RATE = 0.75
-EPF_EMPLOYEE_RATE = 12.0
-ESI_EMPLOYER_RATE = 3.25
-EPF_EMPLOYER_RATE = 13.0
+# ESI_EMPLOYEE_RATE = 0.75
+# EPF_EMPLOYEE_RATE = 12.0
+# ESI_EMPLOYER_RATE = 3.25
+# EPF_EMPLOYER_RATE = 13.0
 
 
 class Vantage(Tk):
@@ -260,10 +260,13 @@ class Vantage(Tk):
     # Draw the main window content
     # Tab System to be implemented later
     def drawWindow(self):
-        button = ttk.Button(self, text="Welcome to Vantage")
-        button.pack(pady=20)
+        card = ttk.Frame(self, style='Card', padding=(5, 6, 7, 8),width=100)
+        card.pack(anchor="w", fill="y", expand=True)
 
-
+        label = ttk.Label(card, text="Welcome to Vantage Payroll", font=("Arial", 24))
+        label.pack(expand=True, fill="x", padx=20, pady=20)
+        label = ttk.Label(card, text="Please use the menu bar to navigate through the application.", font=("Arial", 14))
+        label.pack(expand=True, fill="both", padx=20, pady=10)
 if __name__ == "__main__":
     vantageApp = Vantage()
     vantageApp.mainloop()
